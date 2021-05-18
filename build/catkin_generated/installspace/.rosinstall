@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/autoware/carla_ws/install/setup.sh
