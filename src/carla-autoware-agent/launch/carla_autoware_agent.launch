@@ -30,6 +30,7 @@
     ###########################
     ## CARLA Autoware bridge ##
     ###########################
+    Launches the pure Carla-Autoware Bridge. 
   -->
   <include file='$(find carla_autoware_bridge)/launch/carla_autoware_bridge.launch'>
     <arg name='host' value='$(arg host)'/>
@@ -46,6 +47,7 @@
     ##################
     ## Agent bridge ##
     ##################
+    Here the conversion takes place from carla-topics to autoware suitable topics. 
   -->
   <include file='$(find carla_autoware_agent)/$(arg agent)/bridge.launch'>
     <arg name='role_name' value='$(arg role_name)'/>

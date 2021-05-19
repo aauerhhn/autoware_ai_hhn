@@ -55,11 +55,15 @@
          /initialpose    (currently not published)
     Out: /localizer_pose (estimated pose)
   -->
-  <include file='$(find lidar_localizer)/launch/ndt_matching.launch'>
+
+  <node pkg='odom_tf' type='odom_tf' name='odom_carla_to_autoware'/>
+  <node pkg='vel_pub' type='carla_vel_to_autoware.py' name='velocity_carla_to_autoware'/>
+
+  <!--include file='$(find lidar_localizer)/launch/ndt_matching.launch'>
     <arg name='get_height' value='true'/>
     <arg name='use_gnss' value='true'/>
     <arg name='use_odom' value='true'/>
     <arg name='use_imu' value='true'/>
-  </include>
+  </include-->
 
 </launch>

@@ -5,16 +5,16 @@
   <!--
     # point cloud map #
   -->
-  <include file='$(find map_file)/launch/points_map_loader.launch'>
+  <!--include file='$(find map_file)/launch/points_map_loader.launch'>
       <arg name='path_pcd' value='$(env CARLA_AUTOWARE_CONTENTS)/maps/point_cloud_maps/$(arg town).pcd'/>
-  </include>
+  </include-->
 
   <!--
     # vector map #
   -->
 
-  <!--
-  <node pkg='map_file' type='vector_map_loader' name='vector_map_loader' args='
+  
+  <!--node pkg='map_file' type='vector_map_loader' name='vector_map_loader' args='
       $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/$(arg town)/area.csv
       $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/$(arg town)/intersection.csv
       $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/$(arg town)/line.csv
@@ -27,11 +27,24 @@
       $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/$(arg town)/stopline.csv 
       $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/$(arg town)/roadsign.csv
       $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/$(arg town)/vector.csv' 
-  />-->
+  /-->
 
-  <include file='$(find map_file)/launch/lanelet2_map_loader.launch'>
-    <arg name='file_name' value='$(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/lanelet2/$(arg town).osm'/>
-  </include>
+    <node pkg='map_file' type='vector_map_loader' name='vector_map_loader' args='
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/area.csv
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/intersection.csv
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/line.csv
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/point.csv
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/whiteline.csv
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/dtlane.csv
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/lane.csv
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/node.csv
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/wayarea.csv 
+      $(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/asian/FirstMap/vector.csv' 
+  />
+
+  <!--<include file='$(find map_file)/launch/lanelet2_map_loader.launch'>-->
+    <!--<arg name='file_name' value='$(env CARLA_AUTOWARE_CONTENTS)/maps/vector_maps/lanelet2/$(arg town).osm'/>-->
+  <!--</include>-->
 
   <!--
     # wayarea2grid #
